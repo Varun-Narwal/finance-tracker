@@ -152,3 +152,113 @@ def delete_transaction(transaction_id):
             cur.close()
         if conn:
             conn.close()
+
+# -----------------------------------------
+# ACCOUNTS
+# -----------------------------------------
+
+def add_account(bank_name, account_type, owner_member_id, balance=0.00):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO accounts (bank_name, account_type, owner_member_id, balance)
+            VALUES (%s, %s, %s, %s)
+            RETURNING account_id
+        """, (bank_name, account_type, owner_member_id, balance))
+        account_id = cur.fetchone()[0]
+        conn.commit()
+        return account_id
+    except Exception as e:
+        print(f"Error adding account: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_all_accounts():
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM accounts")
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving accounts: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_accounts_by_member(member_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM accounts WHERE owner_member_id = %s", (member_id,))
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving accounts by member: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def update_account_balance(account_id, amount, operation):
+    if operation not in ('add', 'subtract'):
+        print("Invalid operation. Use 'add' or 'subtract'.")
+        return None
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        if operation == 'add':
+            cur.execute("""
+                UPDATE accounts
+                SET balance = balance + %s
+                WHERE account_id = %s
+                RETURNING account_id
+            """, (amount, account_id))
+        else:  # subtract
+            cur.execute("""
+                UPDATE accounts
+                SET balance = balance - %s
+                WHERE account_id = %s
+                RETURNING account_id
+            """, (amount, account_id))
+        result = cur.fetchone()
+        if not result:
+            return None
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating account balance: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
