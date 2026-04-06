@@ -11,22 +11,61 @@ def add_transaction(
     cur = None
     if transaction_date is None:
         transaction_date = datetime.now()
+    if transaction_type == 'transfer' and to_account_id is None:
+        print("Error: to_account_id is required for transfer transactions")
+        return None
+
     try:
         conn = get_connection()
         if not conn:
             return None
         cur = conn.cursor()
+
+        # insert transaction
         cur.execute("""
             INSERT INTO transactions (
-                amount, type, method, date, note, category_id, member_id, from_account_id, to_account_id
+                amount, type, method, date, note, category_id,
+                member_id, from_account_id, to_account_id
             )
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            RETURNING transaction_id
         """, (
-            amount, transaction_type, method, transaction_date, note, category_id, member_id, from_account_id, to_account_id
+            amount, transaction_type, method, transaction_date, note,
+            category_id, member_id, from_account_id, to_account_id
         ))
+
+        transaction_id = cur.fetchone()[0]
+
+        # update account balances based on transaction type
+        if transaction_type == 'income':
+            cur.execute("""
+                UPDATE accounts SET balance = balance + %s
+                WHERE account_id = %s
+            """, (amount, from_account_id))
+
+        elif transaction_type == 'expense':
+            cur.execute("""
+                UPDATE accounts SET balance = balance - %s
+                WHERE account_id = %s
+            """, (amount, from_account_id))
+
+        elif transaction_type == 'transfer':
+            cur.execute("""
+                UPDATE accounts SET balance = balance - %s
+                WHERE account_id = %s
+            """, (amount, from_account_id))
+            cur.execute("""
+                UPDATE accounts SET balance = balance + %s
+                WHERE account_id = %s
+            """, (amount, to_account_id))
+
+        # single commit — all three operations atomic
         conn.commit()
-        return True
+        return transaction_id
+
     except Exception as e:
+        if conn:
+            conn.rollback()
         print(f"Error adding transaction: {e}")
         return None
     finally:
