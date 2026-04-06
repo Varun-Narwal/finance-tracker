@@ -371,3 +371,94 @@ def get_member_by_id(member_id):
             cur.close()
         if conn:
             conn.close()
+
+# -----------------------------------------
+# CATEGORIES
+# -----------------------------------------
+
+def add_category(name, type_hint, parent_id=None):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO categories (name, type_hint, parent_id)
+            VALUES (%s, %s, %s)
+            RETURNING category_id""", (name, type_hint, parent_id))
+        category_id = cur.fetchone()[0]
+        conn.commit()
+        return category_id
+    except Exception as e:
+        print(f"Error adding category: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_all_categories():
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM categories")
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving all categories: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_subcategories(parent_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM categories WHERE parent_id = %s", (parent_id,))
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving subcategories: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_categories_by_type(type_hint):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM categories WHERE type_hint = %s", (type_hint,))
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving categories by type: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
