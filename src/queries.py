@@ -1,5 +1,6 @@
 from db.connection import get_connection
 from datetime import datetime
+
 # -----------------------------------------
 # TRANSACTIONS
 # -----------------------------------------
@@ -21,7 +22,6 @@ def add_transaction(
             return None
         cur = conn.cursor()
 
-        # insert transaction
         cur.execute("""
             INSERT INTO transactions (
                 amount, type, method, date, note, category_id,
@@ -36,7 +36,6 @@ def add_transaction(
 
         transaction_id = cur.fetchone()[0]
 
-        # update account balances based on transaction type
         if transaction_type == 'income':
             cur.execute("""
                 UPDATE accounts SET balance = balance + %s
@@ -59,7 +58,6 @@ def add_transaction(
                 WHERE account_id = %s
             """, (amount, to_account_id))
 
-        # single commit — all three operations atomic
         conn.commit()
         return transaction_id
 
@@ -295,6 +293,78 @@ def update_account_balance(account_id, amount, operation):
         return True
     except Exception as e:
         print(f"Error updating account balance: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+# -----------------------------------------
+# MEMBERS
+# -----------------------------------------
+
+def add_member(name, relationship, is_virtual=False):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO members (name, relationship, is_virtual)
+            VALUES (%s, %s, %s)
+            RETURNING member_id""", (name, relationship, is_virtual))
+        member_id = cur.fetchone()[0]
+        conn.commit()
+        return member_id
+    except Exception as e:
+        print(f"Error adding member: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_all_members():
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM members")
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving members: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_member_by_id(member_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM members WHERE member_id = %s", (member_id,))
+        row = cur.fetchone()
+        if row:
+            columns = [desc[0] for desc in cur.description]
+            return dict(zip(columns, row))
+        return None
+    except Exception as e:
+        print(f"Error retrieving member: {e}")
         return None
     finally:
         if cur:
