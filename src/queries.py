@@ -462,3 +462,115 @@ def get_categories_by_type(type_hint):
             cur.close()
         if conn:
             conn.close()
+
+# -----------------------------------------
+# BUGETS
+# -----------------------------------------
+
+def add_budget(category_id, member_id, amount, month):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO budgets (category_id, member_id, amount, month)
+            VALUES (%s, %s, %s, %s)
+            RETURNING budget_id
+        """, (category_id, member_id, amount, month))
+        budget_id = cur.fetchone()[0]
+        conn.commit()
+        return budget_id
+    except Exception as e:
+        print(f"Error adding budget: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_budgets_by_month(month):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT * FROM budgets
+            WHERE month = CAST(%s AS DATE)
+        """, (month,))
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving budgets: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def update_budget(budget_id, amount):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            UPDATE budgets SET amount = %s
+            WHERE budget_id = %s
+        """, (amount, budget_id))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating budget: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def get_budget_vs_actual(month):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT
+                b.member_id,
+                b.category_id,
+                b.amount AS budgeted_amount,
+                COALESCE(SUM(t.amount), 0) AS actual_spent,
+                (b.amount - COALESCE(SUM(t.amount), 0)) AS difference
+            FROM budgets b
+            LEFT JOIN transactions t
+                ON b.category_id = t.category_id
+                AND b.member_id = t.member_id
+                AND t.type = 'expense'
+                AND t.date >= CAST(%s AS DATE)
+                AND t.date < CAST(%s AS DATE) + INTERVAL '1 month'
+            GROUP BY b.member_id, b.category_id, b.amount
+        """, (month, month))
+        rows = cur.fetchall()
+        columns = [desc[0] for desc in cur.description]
+        return [dict(zip(columns, row)) for row in rows]
+    except Exception as e:
+        print(f"Error retrieving budget vs actual: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
