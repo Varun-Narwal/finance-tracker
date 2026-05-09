@@ -29,8 +29,8 @@ CREATE TABLE transactions (
     note TEXT,
     category_id INTEGER REFERENCES categories(category_id),
     member_id INTEGER NOT NULL REFERENCES members(member_id),
-    from_account_id INTEGER NOT NULL REFERENCES accounts(account_id),
-    to_account_id INTEGER REFERENCES accounts(account_id),
+    account_id INTEGER NOT NULL REFERENCES accounts(account_id),
+    target_account_id INTEGER REFERENCES accounts(account_id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE budgets (

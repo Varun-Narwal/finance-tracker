@@ -6,14 +6,14 @@ from datetime import datetime
 # -----------------------------------------
 
 def add_transaction(
-    amount, transaction_type, method, member_id, from_account_id, category_id=None, to_account_id=None, note=None, transaction_date=None
+    amount, transaction_type, method, member_id, account_id, category_id=None, target_account_id=None, note=None, transaction_date=None
 ):
     conn = None
     cur = None
     if transaction_date is None:
         transaction_date = datetime.now()
-    if transaction_type == 'transfer' and to_account_id is None:
-        print("Error: to_account_id is required for transfer transactions")
+    if transaction_type == 'transfer' and target_account_id is None:
+        print("Error: target_account_id is required for transfer transactions")
         return None
 
     try:
@@ -25,13 +25,13 @@ def add_transaction(
         cur.execute("""
             INSERT INTO transactions (
                 amount, type, method, date, note, category_id,
-                member_id, from_account_id, to_account_id
+                member_id, account_id, target_account_id
             )
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             RETURNING transaction_id
         """, (
             amount, transaction_type, method, transaction_date, note,
-            category_id, member_id, from_account_id, to_account_id
+            category_id, member_id, account_id, target_account_id
         ))
 
         transaction_id = cur.fetchone()[0]
@@ -40,23 +40,23 @@ def add_transaction(
             cur.execute("""
                 UPDATE accounts SET balance = balance + %s
                 WHERE account_id = %s
-            """, (amount, from_account_id))
+            """, (amount, account_id))
 
         elif transaction_type == 'expense':
             cur.execute("""
                 UPDATE accounts SET balance = balance - %s
                 WHERE account_id = %s
-            """, (amount, from_account_id))
+            """, (amount, account_id))
 
         elif transaction_type == 'transfer':
             cur.execute("""
                 UPDATE accounts SET balance = balance - %s
                 WHERE account_id = %s
-            """, (amount, from_account_id))
+            """, (amount, account_id))
             cur.execute("""
                 UPDATE accounts SET balance = balance + %s
                 WHERE account_id = %s
-            """, (amount, to_account_id))
+            """, (amount, target_account_id))
 
         conn.commit()
         return transaction_id
