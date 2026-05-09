@@ -1,7 +1,7 @@
 amount,transaction_type,method,member_name,account_name,to_account_name,category_name,note,transaction_date
-5000,income,upi,Me,SBI Savings,,Salary,Monthly salary,2026-05-01
-500,expense,upi,House,SBI Savings,,Grocery,Big Bazaar run,2026-05-03
+50000,income,upi,Me,SBI Savings,,Salary,Monthly salary,2026-05-01
+500,expense,upi,House,SBI Savings,,Grocery,,2026-05-03
 1200,expense,cash,Mom,SBI Savings,,Medical,Doctor visit,2026-05-05
 10000,transfer,internet_banking,Me,SBI Savings,HDFC Current,,Moving funds,2026-05-07
-800,expense,upi,House,HDFC Current,,Electricity,April electricity bill,2026-05-10
-2000,income,internet_banking,Dad,HDFC Current,,Salary,Part month salary,2026-05-15
+800,expense,upi,House,HDFC Current,,Electricity,electricity bill,2026-05-10
+100000,income,internet_banking,Dad,HDFC Current,,Salary,Part month salary,2026-05-15
