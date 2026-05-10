@@ -1,7 +1,34 @@
 amount,transaction_type,method,member_name,account_name,to_account_name,category_name,note,transaction_date
-50000,income,upi,Me,SBI Savings,,Salary,Monthly salary,2026-05-01
-500,expense,upi,House,SBI Savings,,Grocery,,2026-05-03
-1200,expense,cash,Mom,Cash,,Medical,Doctor visit,2026-05-05
-10000,transfer,internet_banking,Me,SBI Savings,HDFC Current,,Moving funds,2026-05-07
-800,expense,upi,House,HDFC Current,,Electricity,electricity bill,2026-05-10
-100000,income,internet_banking,Dad,HDFC Current,,Salary,Part month salary,2026-05-15
+45000,income,internet_banking,Me,SBI Savings,,Salary,April salary,2026-04-01
+95000,income,internet_banking,Dad,HDFC Current,,Salary,April salary Dad,2026-04-01
+5800,expense,upi,House,SBI Savings,,Grocery,April ration,2026-04-03
+1900,expense,upi,House,SBI Savings,,Electricity,UHBVN April bill,2026-04-05
+1100,expense,cash,Mom,Cash,,Doctor Visit,Monthly checkup,2026-04-08
+1800,expense,upi,Me,SBI Savings,,Education,Course fee,2026-04-10
+900,expense,upi,Dad,HDFC Current,,Medicines,Monthly medicines,2026-04-15
+2500,expense,upi,House,HDFC Current,,Grocery,Mid month grocery,2026-04-16
+1200,expense,upi,Mom,SBI Savings,,Clothes,Clothes shopping,2026-04-20
+800,expense,upi,Me,SBI Savings,,Clothes,Shoes,2026-04-22
+50000,income,internet_banking,Me,SBI Savings,,Salary,May salary,2026-05-01
+100000,income,internet_banking,Dad,HDFC Current,,Salary,May salary Dad,2026-05-01
+6500,expense,upi,House,SBI Savings,,Grocery,Monthly ration,2026-05-02
+2200,expense,upi,House,SBI Savings,,Electricity,UHBVN May bill,2026-05-05
+450,expense,upi,House,SBI Savings,,Water Bill,May water bill,2026-05-05
+1200,expense,cash,Mom,Cash,,Doctor Visit,Checkup,2026-05-06
+800,expense,upi,Mom,SBI Savings,,Medicines,Monthly medicines,2026-05-06
+1500,expense,upi,Me,SBI Savings,,Education,Online course,2026-05-07
+2000,expense,upi,Me,SBI Savings,,Clothes,Summer clothes,2026-05-10
+500,expense,cash,Me,Cash,,Doctor Visit,General checkup,2026-05-10
+1800,expense,upi,Dad,HDFC Current,,Clothes,New shirt,2026-05-12
+900,expense,upi,Dad,HDFC Current,,Doctor Visit,Dentist,2026-05-12
+3500,expense,upi,House,HDFC Current,,Grocery,Vegetables and fruits,2026-05-15
+1200,expense,upi,Mom,SBI Savings,,Clothes,Saree,2026-05-16
+500,expense,upi,House,SBI Savings,,Grocery,Weekly sabzi,2026-05-18
+800,expense,internet_banking,Me,SBI Savings,,Education,Books,2026-05-20
+600,expense,upi,Dad,HDFC Current,,Medicines,BP medicines,2026-05-22
+1000,expense,upi,Mom,SBI Savings,,Doctor Visit,Follow up,2026-05-24
+400,expense,cash,House,Cash,,Grocery,Daily vegetables,2026-05-25
+10000,transfer,internet_banking,Me,SBI Savings,HDFC Current,,Transfer to HDFC,2026-05-26
+2000,income,internet_banking,Me,SBI Savings,,Investments,Dividend received,2026-05-28
+500,expense,upi,Me,SBI Savings,,Medicines,Cold medicine,2026-05-29
+1500,expense,upi,House,HDFC Current,,Electricity,AC extra usage,2026-05-30
