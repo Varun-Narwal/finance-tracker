@@ -15,12 +15,12 @@ st.title("Personal Finance Tracker")
 st.markdown("---")
 
 st.markdown("""
-Welcome to your personal family finance tracker.
+Welcome to your personal finance tracker.
 Use the sidebar to navigate between sections.
 
 ### Quick Guide
 - **Dashboard** — monthly summary and KPI cards
-- **Transactions** — add and view transactions
+- **Transactions** — manage transactions
 - **Members** — manage family members
 - **Accounts** — manage bank accounts
 - **Categories** — manage expense categories
