@@ -371,6 +371,56 @@ def get_member_by_id(member_id):
             cur.close()
         if conn:
             conn.close()
+            
+def update_member(member_id, **kwargs):
+    conn = None
+    cur = None
+    if not kwargs:
+        print("No fields provided to update")
+        return None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        set_clause = []
+        values = []
+        for key, value in kwargs.items():
+            set_clause.append(f"{key} = %s")
+            values.append(value)
+        values.append(member_id)
+        query = f"UPDATE members SET {', '.join(set_clause)} WHERE member_id = %s"
+        cur.execute(query, values)
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating member: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def delete_member(member_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("DELETE FROM members WHERE member_id = %s", (member_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error deleting member: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
 
 # -----------------------------------------
 # CATEGORIES
