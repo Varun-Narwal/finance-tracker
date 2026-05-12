@@ -102,6 +102,7 @@ if st.button("Add Transaction", type="primary"):
 
     if result:
         st.success(f"Transaction added successfully with ID {result}")
+        time.sleep(1)
         st.rerun()
     else:
         st.error("Failed to add transaction")
@@ -199,6 +200,7 @@ if transactions:
                         
             if changes > 0:
                 st.success(f"{changes} transaction(s) updated successfully")
+                time.sleep(1)
                 st.rerun()
             else:
                 st.warning("No changes detected.")
@@ -251,6 +253,7 @@ if uploaded_file:
                 result = bulk_ingest_csv(temp_path)
             if result:
                 st.success(f"Successfully inserted {result} transactions")
+                time.sleep(1)
                 st.rerun()
             else:
                 st.error("Ingestion failed — check CSV format")

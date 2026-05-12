@@ -37,6 +37,7 @@ if st.button("Add Member", type="primary"):
     result = add_member(name, relationship, is_virtual)
     if result:
         st.success(f"Member '{name}' added with ID {result}")
+        time.sleep(1)
         st.rerun()
     else:
         st.error("Failed to add member — name may already exist")
@@ -99,6 +100,7 @@ if members:
                         changes += 1
             if changes > 0:
                 st.success(f"{changes} member(s) updated successfully")
+                time.sleep(1)
                 st.rerun()
             else:
                 st.warning("No changes detected")
