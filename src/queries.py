@@ -299,7 +299,56 @@ def update_account_balance(account_id, amount, operation):
             cur.close()
         if conn:
             conn.close()
+            
+def update_account(account_id, **kwargs):
+    conn = None
+    cur = None
+    if not kwargs:
+        print("No fields provided to update")
+        return None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        set_clause = []
+        values = []
+        for key, value in kwargs.items():
+            set_clause.append(f"{key} = %s")
+            values.append(value)
+        values.append(account_id)
+        query = f"UPDATE accounts SET {', '.join(set_clause)} WHERE account_id = %s"
+        cur.execute(query, values)
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating account: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
 
+def delete_account(account_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("DELETE FROM accounts WHERE account_id = %s", (account_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error deleting account: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
 # -----------------------------------------
 # MEMBERS
 # -----------------------------------------
