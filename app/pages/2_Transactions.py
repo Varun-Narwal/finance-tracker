@@ -54,7 +54,7 @@ with col3:
             c['name'] for c in categories if c['parent_id'] is None
         ]
         parent_name = st.selectbox("Parent Category", parent_options)
-        type_hint = st.selectbox("Category Type", ['expense', 'income', 'both'])
+        type_hint = st.selectbox("Category Type", ['expense', 'income'])
 
     to_account_name = None
     if transaction_type == 'transfer':

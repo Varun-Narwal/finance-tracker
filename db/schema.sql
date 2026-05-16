@@ -17,7 +17,7 @@ CREATE TABLE categories (
     category_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     parent_id INTEGER REFERENCES categories(category_id),
-    type_hint VARCHAR(10) CHECK (type_hint IN ('expense', 'income', 'both')),
+    type_hint VARCHAR(10) CHECK (type_hint IN ('expense', 'income')),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE transactions (
