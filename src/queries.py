@@ -561,6 +561,56 @@ def get_categories_by_type(type_hint):
             cur.close()
         if conn:
             conn.close()
+            
+def update_category(category_id, **kwargs):
+    conn = None
+    cur = None
+    if not kwargs:
+        print("No fields provided to update")
+        return None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        set_clause = []
+        values = []
+        for key, value in kwargs.items():
+            set_clause.append(f"{key} = %s")
+            values.append(value)
+        values.append(category_id)
+        query = f"UPDATE categories SET {', '.join(set_clause)} WHERE category_id = %s"
+        cur.execute(query, values)
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating category: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
+
+def delete_category(category_id):
+    conn = None
+    cur = None
+    try:
+        conn = get_connection()
+        if not conn:
+            return None
+        cur = conn.cursor()
+        cur.execute("DELETE FROM categories WHERE category_id = %s", (category_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error deleting category: {e}")
+        return None
+    finally:
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
 
 # -----------------------------------------
 # BUGETS
