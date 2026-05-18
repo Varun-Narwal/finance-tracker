@@ -1,0 +1,11 @@
+# Web Framework
+streamlit==1.32.0
+
+# Database Connection
+psycopg2-binary==2.9.9
+
+# Data Manipulation & Analytics
+pandas==2.2.1
+
+# Environment Variable Management
+python-dotenv==1.0.1
