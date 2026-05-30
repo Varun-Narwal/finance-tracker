@@ -34,7 +34,7 @@ class TransactionRecord:
     parent_category_name: str | None
     category_type_hint: str | None     # 'expense' | 'income' | None
 
-    # account context 
+    # account context
     account_id: int
     bank_name: str
     account_type: str                  # e.g. 'savings', 'current', 'credit'
@@ -56,8 +56,6 @@ class CategoryRecord:
 # ---------------------------------------------------------------------------
 # SQL helpers
 # ---------------------------------------------------------------------------
-
-# Shared SELECT + JOIN block reused by both labeled and unlabeled queries.
 
 _SELECT = """
     SELECT
@@ -99,6 +97,7 @@ def _row_to_record(row: tuple, columns: list[str]) -> TransactionRecord:
 
 _WHITESPACE_RE = re.compile(r"\s+")
 
+
 def _clean_note(note: str | None) -> str | None:
     """
     Light normalisation applied at extraction time so the engineer
@@ -129,15 +128,14 @@ async def fetch_labeled(
     Fetch transactions that already have a category assigned.
     Used to build/refresh the training dataset.
     """
-    conditions = ["t.member_id = %s", "t.category_id IS NOT NULL"]
-    params: list = [member_id]
+    conditions = ["t.member_id = %(member_id)s", "t.category_id IS NOT NULL"]
+    params: dict = {"member_id": member_id, "limit": limit}
 
     if exclude_transfers:
         conditions.append("t.type != 'transfer'")
 
     where = "WHERE " + " AND ".join(conditions)
-    sql = f"{_SELECT} {where} ORDER BY t.date DESC LIMIT %s"
-    params.append(limit)
+    sql = f"{_SELECT} {where} ORDER BY t.date DESC LIMIT %(limit)s"
 
     async with conn.cursor() as cur:
         await cur.execute(sql, params)
@@ -157,14 +155,18 @@ async def fetch_for_inference(
     note: str | None,
     account_id: int,
 ) -> TransactionRecord:
-
+    """
+    Construct a TransactionRecord for a new unlabelled transaction
+    by resolving account context from the DB.
+    """
     sql = """
         SELECT a.bank_name, a.account_type
         FROM accounts a
-        WHERE a.account_id = %s AND a.owner_member_id = %s
+        WHERE a.account_id = %(account_id)s
+          AND a.owner_member_id = %(member_id)s
     """
     async with conn.cursor() as cur:
-        await cur.execute(sql, (account_id, member_id))
+        await cur.execute(sql, {"account_id": account_id, "member_id": member_id})
         row = await cur.fetchone()
 
     if row is None:
@@ -175,14 +177,14 @@ async def fetch_for_inference(
     bank_name, account_type = row
 
     return TransactionRecord(
-        transaction_id=-1,           
-        amount=amount,               
+        transaction_id=-1,
+        amount=amount,
         type=type_,
         method=method,
         date=date,
         member_id=member_id,
         note=_clean_note(note),
-        category_id=None,            
+        category_id=None,
         category_name=None,
         parent_category_id=None,
         parent_category_name=None,
@@ -194,7 +196,10 @@ async def fetch_for_inference(
     )
 
 
-async def fetch_categories(conn, type_hint: str | None = None) -> list[CategoryRecord]:
+async def fetch_categories(
+    conn,
+    type_hint: str | None = None,
+) -> list[CategoryRecord]:
     """
     Return the full category catalogue (with parent names resolved).
     Used by the /categorize router to populate the Streamlit selectbox options.
@@ -209,10 +214,12 @@ async def fetch_categories(conn, type_hint: str | None = None) -> list[CategoryR
         FROM categories c
         LEFT JOIN categories p ON p.category_id = c.parent_id
     """
-    params = []
+    params: dict = {}
+
     if type_hint:
-        sql += " WHERE c.type_hint = %s OR c.type_hint IS NULL"
-        params.append(type_hint)
+        sql += " WHERE c.type_hint = %(type_hint)s OR c.type_hint IS NULL"
+        params["type_hint"] = type_hint
+
     sql += " ORDER BY p.name NULLS FIRST, c.name"
 
     async with conn.cursor() as cur:
@@ -237,26 +244,108 @@ async def fetch_member_recent_stats(
     reference_date: datetime,
 ) -> dict:
     """
-    Returns dict with keys:
-        avg_7d, std_7d, count_7d,avg_30d, std_30d, count_30d
+    Returns rolling stats for a single member at a given reference date.
+    Used during inference for a single new transaction.
+    Keys: avg_7d, std_7d, count_7d, avg_30d, std_30d, count_30d
     """
     sql = """
         SELECT
-            AVG(amount) FILTER (WHERE date >= %(ref)s - INTERVAL '7 days')   AS avg_7d,
-            STDDEV(amount) FILTER (WHERE date >= %(ref)s - INTERVAL '7 days') AS std_7d,
-            COUNT(*) FILTER (WHERE date >= %(ref)s - INTERVAL '7 days')       AS count_7d,
-
-            AVG(amount) FILTER (WHERE date >= %(ref)s - INTERVAL '30 days')  AS avg_30d,
+            AVG(amount)    FILTER (WHERE date >= %(ref)s - INTERVAL '7 days')  AS avg_7d,
+            STDDEV(amount) FILTER (WHERE date >= %(ref)s - INTERVAL '7 days')  AS std_7d,
+            COUNT(*)       FILTER (WHERE date >= %(ref)s - INTERVAL '7 days')  AS count_7d,
+            AVG(amount)    FILTER (WHERE date >= %(ref)s - INTERVAL '30 days') AS avg_30d,
             STDDEV(amount) FILTER (WHERE date >= %(ref)s - INTERVAL '30 days') AS std_30d,
-            COUNT(*) FILTER (WHERE date >= %(ref)s - INTERVAL '30 days')      AS count_30d
+            COUNT(*)       FILTER (WHERE date >= %(ref)s - INTERVAL '30 days') AS count_30d
         FROM transactions
-        WHERE member_id = %(mid)s
+        WHERE member_id = %(member_id)s
           AND type != 'transfer'
     """
 
     async with conn.cursor() as cur:
-        await cur.execute(sql, {"ref": reference_date, "mid": member_id})
+        await cur.execute(sql, {"ref": reference_date, "member_id": member_id})
         row = await cur.fetchone()
 
     keys = ("avg_7d", "std_7d", "count_7d", "avg_30d", "std_30d", "count_30d")
     return dict(zip(keys, row))
+
+
+async def fetch_stats_for_records(
+    conn,
+    records: list[TransactionRecord],
+) -> dict[int, dict]:
+    """
+    Computes rolling 7d and 30d stats for every record in a single query
+    using a self-join. Returns a dict keyed by transaction_id.
+
+    Avoids the N+1 problem — one DB round trip regardless of how many
+    records are passed. Used during training to populate the full stats_map
+    that build_training_frame expects.
+    """
+    if not records:
+        return {}
+
+    # Build a reverse lookup: (member_id, date) -> [transaction_ids]
+    # Needed to map query rows back to transaction_ids after aggregation.
+    id_lookup: dict[tuple, list[int]] = {}
+    for rec in records:
+        key = (rec.member_id, rec.date)
+        id_lookup.setdefault(key, []).append(rec.transaction_id)
+
+    member_ids = list({rec.member_id for rec in records})
+    min_date = min(rec.date for rec in records)
+
+    sql = """
+        WITH anchors AS (
+            SELECT DISTINCT member_id, date AS ref_date
+            FROM transactions
+            WHERE member_id = ANY(%(member_ids)s)
+        )
+        SELECT
+            a.member_id,
+            a.ref_date,
+            AVG(t.amount)    FILTER (WHERE t.date >= a.ref_date - INTERVAL '7 days')  AS avg_7d,
+            STDDEV(t.amount) FILTER (WHERE t.date >= a.ref_date - INTERVAL '7 days')  AS std_7d,
+            COUNT(t.*)       FILTER (WHERE t.date >= a.ref_date - INTERVAL '7 days')  AS count_7d,
+            AVG(t.amount)    FILTER (WHERE t.date >= a.ref_date - INTERVAL '30 days') AS avg_30d,
+            STDDEV(t.amount) FILTER (WHERE t.date >= a.ref_date - INTERVAL '30 days') AS std_30d,
+            COUNT(t.*)       FILTER (WHERE t.date >= a.ref_date - INTERVAL '30 days') AS count_30d
+        FROM anchors a
+        JOIN transactions t
+          ON t.member_id = a.member_id
+         AND t.date <= a.ref_date
+         AND t.type != 'transfer'
+         AND t.date >= %(min_date)s - INTERVAL '30 days'
+        GROUP BY a.member_id, a.ref_date
+    """
+
+    async with conn.cursor() as cur:
+        await cur.execute(sql, {"member_ids": member_ids, "min_date": min_date})
+        rows = await cur.fetchall()
+        columns = [col.name for col in cur.description]
+
+    stats_map: dict[int, dict] = {}
+
+    _empty_stats = {
+        "avg_7d": None, "std_7d": None, "count_7d": 0,
+        "avg_30d": None, "std_30d": None, "count_30d": 0,
+    }
+
+    for row in rows:
+        data = dict(zip(columns, row))
+        ref_key = (data["member_id"], data["ref_date"])
+        stats = {
+            "avg_7d":   data.get("avg_7d"),
+            "std_7d":   data.get("std_7d"),
+            "count_7d": data.get("count_7d") or 0,
+            "avg_30d":  data.get("avg_30d"),
+            "std_30d":  data.get("std_30d"),
+            "count_30d": data.get("count_30d") or 0,
+        }
+        for tx_id in id_lookup.get(ref_key, []):
+            stats_map[tx_id] = stats
+
+    for rec in records:
+        if rec.transaction_id not in stats_map:
+            stats_map[rec.transaction_id] = _empty_stats
+
+    return stats_map
