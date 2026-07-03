@@ -71,7 +71,7 @@ def _safe_zscore(
 ) -> float:
     if mean is None or std is None or std == 0:
         return 0.0
-    return (amount - mean) / std
+    return (amount - float(mean)) / float(std)
 
 
 def _normalise_method(method: str | None) -> str:
