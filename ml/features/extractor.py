@@ -120,16 +120,16 @@ def _clean_note(note: str | None) -> str | None:
 
 async def fetch_labeled(
     conn,
-    member_id: int,
+    member_id: int | None = None,
     limit: int = 5_000,
     exclude_transfers: bool = True,
 ) -> list[TransactionRecord]:
-    """
-    Fetch transactions that already have a category assigned.
-    Used to build/refresh the training dataset.
-    """
-    conditions = ["t.member_id = %(member_id)s", "t.category_id IS NOT NULL"]
-    params: dict = {"member_id": member_id, "limit": limit}
+    conditions = ["t.category_id IS NOT NULL"]
+    params: dict = {"limit": limit}
+
+    if member_id is not None:
+        conditions.append("t.member_id = %(member_id)s")
+        params["member_id"] = member_id
 
     if exclude_transfers:
         conditions.append("t.type != 'transfer'")
@@ -163,7 +163,6 @@ async def fetch_for_inference(
         SELECT a.bank_name, a.account_type
         FROM accounts a
         WHERE a.account_id = %(account_id)s
-          AND a.owner_member_id = %(member_id)s
     """
     async with conn.cursor() as cur:
         await cur.execute(sql, {"account_id": account_id, "member_id": member_id})
