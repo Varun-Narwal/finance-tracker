@@ -24,8 +24,10 @@ async def init_pool():
             conninfo=conn_str,
             min_size=2,
             max_size=5,
-            kwargs={"autocommit": True} 
+            kwargs={"autocommit": True},
+            open=False
         )
+        await _pool.open()
         await _pool.wait()
         print("[ml-db] Async connection pool initialized.", flush=True)
     except Exception as e:
@@ -44,5 +46,5 @@ async def get_connection():
     if _pool is None:
         raise RuntimeError("Pool not initialised. Call await init_pool() first.")
     async with _pool.connection() as conn:
-        conn.read_only = True 
+        await conn.set_read_only(True) 
         yield conn
