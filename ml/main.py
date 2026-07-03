@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI, Response, status
 from ml.db.connection import init_pool, close_pool, get_connection
 
-# from ml.routers import categorize, anomaly, forecast
+from ml.routers import categorize, anomaly, forecast
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -56,6 +56,6 @@ async def health(response: Response):
     }
 
 
-# app.include_router(categorize.router, prefix="/categorize", tags=["categorize"])
+app.include_router(categorize.router, prefix="/categorize", tags=["categorize"])
 # app.include_router(anomaly.router,    prefix="/anomaly",    tags=["anomaly"])
 # app.include_router(forecast.router,   prefix="/forecast",   tags=["forecast"])
