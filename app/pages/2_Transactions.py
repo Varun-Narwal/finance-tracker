@@ -12,6 +12,9 @@ from src.queries import (
     delete_transaction, update_transaction, add_category
 )
 
+import requests
+ML_SERVICE_URL = os.getenv("ML_SERVICE_URL", "http://localhost:8001")
+
 st.set_page_config(page_title="Transactions", page_icon="💸", layout="wide")
 
 st.title("💸 Transactions")
@@ -26,13 +29,20 @@ member_map = {m['name']: m['member_id'] for m in members}
 account_map = {a['bank_name']: a['account_id'] for a in accounts}
 category_map = {c['name']: c['category_id'] for c in categories}
 
+if "ml_suggestion" not in st.session_state:
+    st.session_state["ml_suggestion"] = None
+
 #------------------------------------------
 # ADD TRANSACTION
 #------------------------------------------
 
+# Initialize state for multiple suggestions if it doesn't exist
+if "ml_suggestions" not in st.session_state:
+    st.session_state["ml_suggestions"] = []
+
 st.subheader("Add Transaction")
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 with col1:
     amount = st.number_input("Amount (₹)", min_value=0.01, step=0.01)
@@ -43,27 +53,81 @@ with col2:
     member_name = st.selectbox("Member", list(member_map.keys()))
     account_name = st.selectbox("Account", list(account_map.keys()))
     transaction_date = st.date_input("Date", value=datetime.now())
-
-with col3:
-    category_options = list(category_map.keys()) + ["+ Add new category"]
-    category_name = st.selectbox("Category", category_options)
-
-    if category_name == "+ Add new category":
-        new_cat_name = st.text_input("New Category Name")
-        parent_options = ["None"] + [
-            c['name'] for c in categories if c['parent_id'] is None
-        ]
-        parent_name = st.selectbox("Parent Category", parent_options)
-        type_hint = st.selectbox("Category Type", ['expense', 'income'])
-
+    
     to_account_name = None
-    if transaction_type == 'transfer':
+    if transaction_type == "transfer":
         to_account_name = st.selectbox(
             "To Account",
-            [a for a in account_map.keys() if a != account_name]
+            [a for a in account_map.keys() if a != account_name],
+            key="to_account"
         )
 
-    note = st.text_input("Note (optional)")
+st.markdown("<br>", unsafe_allow_html=True)
+note = st.text_input("Note (optional)", key="txn_note")
+
+cat_col, btn_col = st.columns([4, 1])
+
+with btn_col:
+    st.markdown("<div style='margin-top: 28px;'></div>", unsafe_allow_html=True)
+    suggest_clicked = st.button("✨ Suggest", use_container_width=True)
+
+if suggest_clicked:
+    if amount > 0 and transaction_type != "transfer":
+        with st.spinner("Predicting..."):
+            try:
+                resp = requests.post(
+                    f"{ML_SERVICE_URL}/categorize/predict",
+                    json={
+                        "member_id": member_map[member_name],
+                        "amount":    float(amount),
+                        "type":      transaction_type,
+                        "method":    method,
+                        "date":      datetime.combine(transaction_date, datetime.min.time()).isoformat(),
+                        "note":      note if note else None,
+                        "account_id": account_map[account_name],
+                        "top_n":     3, 
+                    },
+                    timeout=5,
+                )
+                data = resp.json()
+                if data.get("status") == "ok" and data.get("suggestions"):
+                    # Extract all suggestion names into a list
+                    suggestions = [s["category_name"] for s in data["suggestions"]]
+                    st.session_state["ml_suggestions"] = suggestions
+                    
+                    # Force the selectbox to visually snap to the #1 suggestion
+                    if suggestions and suggestions[0] in category_map:
+                        st.session_state["category_select"] = suggestions[0]
+                    
+                    st.rerun()
+            except Exception:
+                st.error("ML service currently unavailable.")
+    else:
+        st.warning("Enter an amount and ensure type is not 'transfer'.")
+
+with cat_col:
+    base_options = list(category_map.keys())
+    
+    suggested_options = [
+        s for s in st.session_state.get("ml_suggestions", []) 
+        if s in base_options
+    ]
+    
+    remaining_options = [c for c in base_options if c not in suggested_options]
+    
+    # Top 3 suggestions first -> Remaining categories -> Add new
+    ordered_options = suggested_options + remaining_options + ["+ Add new category"]
+
+    category_name = st.selectbox("Category", ordered_options, key="category_select")
+
+if category_name == "+ Add new category":
+    new_cat_col1, new_cat_col2 = st.columns(2)
+    with new_cat_col1:
+        new_cat_name = st.text_input("New Category Name")
+        type_hint    = st.selectbox("Category Type", ["expense", "income"])
+    with new_cat_col2:
+        parent_options = ["None"] + [c["name"] for c in categories if c["parent_id"] is None]
+        parent_name = st.selectbox("Parent Category", parent_options)
 
 if st.button("Add Transaction", type="primary"):
     if category_name == "+ Add new category":
@@ -102,6 +166,7 @@ if st.button("Add Transaction", type="primary"):
 
     if result:
         st.success(f"Transaction added successfully with ID {result}")
+        st.session_state["ml_suggestions"] = []
         time.sleep(1)
         st.rerun()
     else:
