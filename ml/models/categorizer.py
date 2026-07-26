@@ -15,6 +15,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
+from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.metrics import classification_report
 
 from ml.features.engineer import (
     CATEGORICAL_FEATURES,
@@ -199,6 +201,15 @@ async def train(conn, member_id: int | None = None) -> dict:
     # 6. Evaluate
     y_pred       = await asyncio.to_thread(pipeline.predict, X_val)
     val_accuracy = round(float(accuracy_score(y_val, y_pred)), 4)
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    cv_scores = cross_val_score(pipeline, df, y, cv=cv, scoring="f1_macro")
+    cv_f1_macro = round(float(cv_scores.mean()), 4)
+    cv_f1_std   = round(float(cv_scores.std()), 4)
+
+    # Per-class report for debugging — logged but not exposed in API response
+    report = classification_report(y_val, y_pred, 
+                                target_names=[str(c) for c in le.classes_])
+    print(f"[categorizer] Classification report:\n{report}", flush=True)
 
     # 7. Persist artifacts atomically
     # Write to .tmp files first, then rename — rename is atomic on POSIX systems.
@@ -212,6 +223,8 @@ async def train(conn, member_id: int | None = None) -> dict:
     metadata = {
         "model":          "xgboost",
         "val_accuracy":   val_accuracy,
+        "cv_f1_macro":    cv_f1_macro,
+        "cv_f1_std":      cv_f1_std,
         "n_samples":      n_samples,
         "n_classes":      int(len(le.classes_)),
         "trained_at":     datetime.now(timezone.utc).isoformat(),
