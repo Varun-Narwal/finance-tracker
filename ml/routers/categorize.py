@@ -67,6 +67,8 @@ class RetrainRequest(BaseModel):
 class RetrainResponse(BaseModel):
     model:        str
     val_accuracy: float
+    cv_f1_macro:  float
+    cv_f1_std:    float
     n_samples:    int
     n_classes:    int
     trained_at:   str
@@ -77,6 +79,8 @@ class StatusResponse(BaseModel):
     status:       str           # "ready" | "not_trained"
     model:        Optional[str]         = None
     val_accuracy: Optional[float]       = None
+    cv_f1_macro:  Optional[float]       = None
+    cv_f1_std:    Optional[float]       = None
     n_samples:    Optional[int]         = None
     n_classes:    Optional[int]         = None
     trained_at:   Optional[str]         = None
