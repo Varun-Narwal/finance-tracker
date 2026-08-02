@@ -1,34 +1,557 @@
 amount,transaction_type,method,member_name,account_name,to_account_name,category_name,note,transaction_date
-45000,income,internet_banking,Me,SBI Savings,,Salary,April salary,2026-04-01
-95000,income,internet_banking,Dad,HDFC Current,,Salary,April salary Dad,2026-04-01
-5800,expense,upi,House,SBI Savings,,Grocery,April ration,2026-04-03
-1900,expense,upi,House,SBI Savings,,Electricity,UHBVN April bill,2026-04-05
-1100,expense,cash,Mom,Cash,,Doctor Visit,Monthly checkup,2026-04-08
-1800,expense,upi,Me,SBI Savings,,Education,Course fee,2026-04-10
-900,expense,upi,Dad,HDFC Current,,Medicines,Monthly medicines,2026-04-15
-2500,expense,upi,House,HDFC Current,,Grocery,Mid month grocery,2026-04-16
-1200,expense,upi,Mom,SBI Savings,,Clothes,Clothes shopping,2026-04-20
-800,expense,upi,Me,SBI Savings,,Clothes,Shoes,2026-04-22
-50000,income,internet_banking,Me,SBI Savings,,Salary,May salary,2026-05-01
-100000,income,internet_banking,Dad,HDFC Current,,Salary,May salary Dad,2026-05-01
-6500,expense,upi,House,SBI Savings,,Grocery,Monthly ration,2026-05-02
-2200,expense,upi,House,SBI Savings,,Electricity,UHBVN May bill,2026-05-05
-450,expense,upi,House,SBI Savings,,Water Bill,May water bill,2026-05-05
-1200,expense,cash,Mom,Cash,,Doctor Visit,Checkup,2026-05-06
-800,expense,upi,Mom,SBI Savings,,Medicines,Monthly medicines,2026-05-06
-1500,expense,upi,Me,SBI Savings,,Education,Online course,2026-05-07
-2000,expense,upi,Me,SBI Savings,,Clothes,Summer clothes,2026-05-10
-500,expense,cash,Me,Cash,,Doctor Visit,General checkup,2026-05-10
-1800,expense,upi,Dad,HDFC Current,,Clothes,New shirt,2026-05-12
-900,expense,upi,Dad,HDFC Current,,Doctor Visit,Dentist,2026-05-12
-3500,expense,upi,House,HDFC Current,,Grocery,Vegetables and fruits,2026-05-15
-1200,expense,upi,Mom,SBI Savings,,Clothes,Saree,2026-05-16
-500,expense,upi,House,SBI Savings,,Grocery,Weekly sabzi,2026-05-18
-800,expense,internet_banking,Me,SBI Savings,,Education,Books,2026-05-20
-600,expense,upi,Dad,HDFC Current,,Medicines,BP medicines,2026-05-22
-1000,expense,upi,Mom,SBI Savings,,Doctor Visit,Follow up,2026-05-24
-400,expense,cash,House,Cash,,Grocery,Daily vegetables,2026-05-25
-10000,transfer,internet_banking,Me,SBI Savings,HDFC Current,,Transfer to HDFC,2026-05-26
-2000,income,internet_banking,Me,SBI Savings,,Investments,Dividend received,2026-05-28
-500,expense,upi,Me,SBI Savings,,Medicines,Cold medicine,2026-05-29
-1500,expense,upi,House,HDFC Current,,Electricity,AC extra usage,2026-05-30
+53618,income,internet_banking,Dad,HDFC Current,,Salary,Employer salary transfer,2025-01-02
+589,expense,cash,House,Cash,,Grocery,Monthly grocery from kirana,2025-01-02
+400,expense,cash,Me,Cash,,Medicines,Cough syrup and drops,2025-01-02
+2809,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-01-03
+645,expense,upi,Me,Paytm Wallet,,Personal,Zomato delivery,2025-01-05
+3191,expense,upi,House,Paytm Wallet,,Grocery,Spices and masala,2025-01-07
+1966,expense,upi,Dad,Paytm Wallet,,Medical,Full body health checkup,2025-01-07
+1165,expense,cash,House,Cash,,Home Expense,Geyser repair,2025-01-08
+787,expense,cash,Mom,Cash,,Personal,Tailoring charges,2025-01-08
+1233,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2025-01-09
+2058,expense,cash,Me,Cash,,Education,Project material cost,2025-01-09
+2181,expense,upi,House,Paytm Wallet,,Festival,Makar Sankranti,2025-01-10
+489,expense,cash,Dad,Cash,,Doctor Visit,Neurologist consultation,2025-01-12
+1678,expense,cash,Mom,Cash,,Medical,Blood test CBC full,2025-01-13
+205,expense,cash,Dad,Cash,,Personal,Mobile recharge BSNL,2025-01-14
+331,expense,upi,Dad,HDFC Current,,Personal,Temple donation,2025-01-14
+2638,expense,cash,Me,Cash,,Medical,Blood sugar fasting,2025-01-14
+379,expense,cash,House,Cash,,Water Bill,Municipal water charges,2025-01-15
+1904,expense,internet_banking,House,SBI Savings,,Home Expense,Sofa cleaning,2025-01-17
+404,expense,cash,Mom,Cash,,Doctor Visit,Routine health checkup,2025-01-17
+1507,expense,cash,House,Cash,,Grocery,Fruits from vendor,2025-01-18
+1202,expense,upi,Me,Paytm Wallet,,Personal,Earphones,2025-01-18
+193,expense,cash,Me,Cash,,Medicines,Thyroid medicine,2025-01-19
+3002,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Safari shoes,2025-01-20
+2727,expense,cash,Me,Cash,,Education,Exam registration fee,2025-01-22
+181,expense,cash,Dad,Cash,,Medicines,Antacid and digestion,2025-01-22
+345,expense,cash,Me,Cash,,Personal,Stationery purchase,2025-01-23
+5950,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2025-01-23
+364,expense,upi,House,Paytm Wallet,,Grocery,Big Bazaar shopping,2025-01-26
+1600,expense,upi,Mom,Cash,,Personal,Mehendi for function,2025-01-27
+179,expense,cash,Mom,Cash,,Medicines,Fever medicine paracetamol,2025-01-27
+49929,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2025-02-02
+1251,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-02-04
+1627,expense,cash,House,Cash,,Grocery,Weekly sabzi from market,2025-02-05
+1119,expense,cash,Me,Cash,,Personal,Gym monthly membership,2025-02-05
+1917,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2025-02-07
+1548,expense,internet_banking,House,SBI Savings,,Home Expense,Washing machine repair,2025-02-07
+522,expense,cash,Mom,Cash,,Personal,Tailoring charges,2025-02-07
+597,expense,cash,Dad,SBI Savings Dad,,Medicines,Diabetes medicines,2025-02-07
+1912,expense,cash,House,Cash,,Grocery,Milk eggs and bread,2025-02-09
+215,expense,upi,Me,SBI Savings,,Personal,Deodorant and grooming,2025-02-10
+274,expense,upi,House,Paytm Wallet,,Water Bill,Jal board payment,2025-02-11
+5622,income,internet_banking,Dad,SBI Savings Dad,,Investments,PPF partial withdrawal,2025-02-12
+2103,expense,cash,Me,Cash,,Education,Practical lab fee,2025-02-12
+588,expense,cash,Mom,Cash,,Medicines,Pain relief tablets,2025-02-13
+3125,expense,cash,House,Cash,,Grocery,Swiggy Instamart,2025-02-14
+545,expense,cash,Me,Cash,,Doctor Visit,Neurologist consultation,2025-02-14
+2129,expense,upi,Dad,Paytm Wallet,,Medical,Ultrasound abdomen,2025-02-14
+1203,expense,upi,Me,Paytm Wallet,,Education,Skill India course,2025-02-17
+223,expense,upi,Me,SBI Savings,,Personal,Eating out dinner,2025-02-18
+2007,expense,cash,Me,Cash,,Education,Study material books,2025-02-18
+209,expense,cash,Me,Paytm Wallet,,Medicines,Blood pressure tablets,2025-02-19
+4496,expense,upi,House,Paytm Wallet,,Festival,Diwali sweets and dry fruits,2025-02-21
+1397,expense,upi,Mom,Cash,,Personal,Tailoring charges,2025-02-21
+1206,expense,cash,House,Cash,,Home Expense,Cooler repair,2025-02-25
+718,expense,upi,Dad,HDFC Current,,Personal,Tea stall morning,2025-02-25
+126,expense,upi,Dad,HDFC Current,,Personal,Haircut and shave,2025-02-27
+373,expense,cash,Mom,Cash,,Doctor Visit,Eye checkup ophthalmologist,2025-02-27
+1784,expense,cash,Me,Cash,,Medical,Full body health checkup,2025-02-27
+1471,expense,cash,House,Cash,,Home Expense,Maid salary,2025-03-02
+49183,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2025-03-03
+1524,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2025-03-05
+2625,expense,cash,House,Cash,,Grocery,Swiggy Instamart,2025-03-06
+398,expense,cash,Me,Cash,,Personal,Zomato delivery,2025-03-06
+852,expense,cash,Dad,Cash,,Doctor Visit,Second opinion doctor,2025-03-06
+2720,expense,upi,Mom,Paytm Wallet,,Festival,Eid sevaiyan and gifts,2025-03-07
+272,expense,cash,Mom,Cash,,Medicines,Cough syrup and drops,2025-03-07
+901,expense,upi,Me,SBI Savings,,Education,Project material cost,2025-03-08
+1020,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-03-08
+1304,expense,cash,House,Cash,,Grocery,Reliance Fresh,2025-03-09
+1204,expense,cash,Me,Cash,,Personal,Late night snacks,2025-03-10
+799,expense,upi,Dad,HDFC Current,,Personal,Haircut and shave,2025-03-10
+590,expense,upi,Mom,Cash,,Personal,Kitchen accessories,2025-03-12
+416,expense,cash,House,Cash,,Water Bill,Jal board payment,2025-03-13
+301,expense,internet_banking,House,SBI Savings,,Home Expense,Electrician repair charges,2025-03-14
+2312,expense,upi,Dad,Paytm Wallet,,Medical,Physiotherapy session,2025-03-17
+1100,expense,cash,Mom,Cash,,Personal,Ladies kitty party contribution,2025-03-19
+4516,expense,cash,Me,Cash,,Festival,Diwali diyas and decoration,2025-03-20
+523,expense,upi,Me,Paytm Wallet,,Personal,Gym monthly membership,2025-03-20
+479,expense,upi,Me,SBI Savings,,Education,NPTEL subscription,2025-03-21
+796,expense,cash,Dad,SBI Savings Dad,,Medicines,Calcium supplements,2025-03-21
+2626,expense,cash,House,Cash,,Grocery,Sugar and tea,2025-03-22
+700,expense,upi,Dad,HDFC Current,,Personal,Haircut and shave,2025-03-22
+1384,expense,upi,Me,Paytm Wallet,,Clothes,Hoodie winter,2025-03-23
+387,expense,upi,Me,Paytm Wallet,,Medicines,Antibiotic course,2025-03-26
+1283,expense,upi,Me,Paytm Wallet,,Medical,Vitamin D test,2025-03-27
+1278,expense,cash,House,Cash,,Home Expense,LPG cylinder refill,2025-04-01
+1392,expense,cash,Me,Cash,,Education,Skill India course,2025-04-01
+3377,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Woollen sweater,2025-04-02
+835,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-04-03
+308,expense,cash,Mom,Cash,,Medicines,Pain relief tablets,2025-04-04
+53276,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2025-04-05
+1673,expense,internet_banking,House,SBI Savings,,Home Expense,Pest control service,2025-04-06
+929,expense,cash,Me,Cash,,Personal,Street food with friends,2025-04-06
+1068,expense,internet_banking,House,SBI Savings,,Electricity,UHBVN payment,2025-04-07
+2352,expense,internet_banking,House,SBI Savings,,Home Expense,Water purifier service,2025-04-07
+432,expense,cash,Mom,Cash,,Personal,Henna,2025-04-09
+487,expense,upi,Dad,SBI Savings Dad,,Medicines,Vitamins and supplements,2025-04-09
+1803,income,internet_banking,Dad,SBI Savings Dad,,Investments,Dividend received,2025-04-10
+548,expense,upi,Me,Paytm Wallet,,Medicines,Thyroid medicine,2025-04-10
+343,expense,upi,House,Paytm Wallet,,Grocery,Big Bazaar shopping,2025-04-11
+444,expense,cash,House,Cash,,Water Bill,Water tanker charges,2025-04-12
+550,expense,cash,Dad,Cash,,Personal,Pan shop,2025-04-13
+2257,expense,cash,Me,Cash,,Festival,Independence Day celebration,2025-04-14
+2457,expense,upi,House,Paytm Wallet,,Grocery,Jio Mart order,2025-04-15
+575,expense,cash,Mom,Cash,,Doctor Visit,Diabetologist visit,2025-04-16
+1097,expense,cash,Me,Cash,,Medical,Blood test CBC full,2025-04-17
+1259,expense,upi,Me,Paytm Wallet,,Personal,Eating out dinner,2025-04-18
+701,expense,upi,Mom,Cash,,Personal,Beauty parlour visit,2025-04-18
+3166,expense,cash,Mom,Cash,,Festival,Karva Chauth preparations,2025-04-19
+797,expense,cash,Dad,Cash,,Personal,Temple donation,2025-04-20
+8788,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2025-04-20
+575,expense,cash,House,Cash,,Grocery,Oil ghee butter,2025-04-21
+2360,expense,upi,Me,SBI Savings,,Clothes,Shorts and vest,2025-04-22
+632,expense,cash,Me,Cash,,Doctor Visit,Follow up consultation,2025-04-23
+2598,expense,cash,Me,Cash,,Education,Coursera certificate,2025-04-25
+382,expense,cash,Mom,Cash,,Medical,Vaccination flu shot,2025-04-25
+386,expense,upi,Me,Paytm Wallet,,Personal,Gym monthly membership,2025-04-26
+1203,expense,upi,Me,Paytm Wallet,,Medical,Vitamin D test,2025-04-27
+832,expense,upi,Mom,Cash,,Clothes,Saree blouse,2025-04-28
+443,expense,cash,Dad,Cash,,Personal,Newspaper daily,2025-05-01
+474,expense,cash,Dad,Cash,,Doctor Visit,Paediatrician visit,2025-05-01
+991,expense,upi,House,Paytm Wallet,,Home Expense,Painting advance,2025-05-02
+465,expense,cash,Mom,Cash,,Doctor Visit,Paediatrician visit,2025-05-02
+48471,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2025-05-04
+305,expense,upi,Dad,Cash,,Medicines,Diabetes medicines,2025-05-04
+1101,expense,cash,Dad,Cash,,Medical,Full body health checkup,2025-05-04
+1633,expense,cash,House,Cash,,Home Expense,Newspaper monthly,2025-05-05
+3211,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-05-05
+2045,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2025-05-06
+434,expense,cash,Me,Cash,,Personal,Haircut from salon,2025-05-06
+814,expense,upi,Me,SBI Savings,,Personal,Swiggy order,2025-05-06
+425,expense,upi,Me,Paytm Wallet,,Clothes,Casual wear,2025-05-08
+3067,expense,upi,House,Paytm Wallet,,Grocery,Cleaning supplies with grocery,2025-05-09
+2285,expense,upi,Me,SBI Savings,,Education,Tutorial classes,2025-05-09
+693,expense,cash,Me,Cash,,Personal,Street food with friends,2025-05-11
+648,expense,upi,Mom,Cash,,Personal,Waxing charges,2025-05-11
+960,expense,upi,Me,Paytm Wallet,,Education,Online workshop fee,2025-05-12
+329,expense,upi,House,Paytm Wallet,,Grocery,Oil ghee butter,2025-05-14
+3857,expense,cash,House,Cash,,Festival,Ram Navami puja samagri,2025-05-14
+477,expense,cash,House,Cash,,Water Bill,Jal board payment,2025-05-15
+620,expense,upi,Dad,HDFC Current,,Personal,Tobacco,2025-05-15
+422,expense,upi,Me,Cash,,Medicines,Iron supplements,2025-05-15
+602,expense,cash,Mom,Cash,,Medicines,Antacid and digestion,2025-05-15
+2021,expense,cash,Mom,Cash,,Medical,Chest X-ray,2025-05-15
+762,expense,upi,House,Paytm Wallet,,Home Expense,Water purifier service,2025-05-17
+959,expense,cash,House,Cash,,Grocery,Weekly sabzi from market,2025-05-19
+1578,expense,cash,Mom,Cash,,Personal,Temple prasad,2025-05-19
+414,expense,cash,Me,Cash,,Education,Udemy course purchase,2025-05-20
+2040,expense,cash,Mom,Cash,,Clothes,Salwar suit stitching,2025-05-21
+929,expense,cash,House,Cash,,Grocery,Blinkit order,2025-06-02
+3431,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-06-02
+3510,expense,upi,Mom,Cash,,Clothes,Cotton saree,2025-06-03
+514,expense,upi,Me,SBI Savings,,Personal,Earphones,2025-06-04
+148,expense,upi,Me,Cash,,Medicines,Medicines from Apollo pharmacy,2025-06-04
+50268,income,internet_banking,Dad,HDFC Current,,Salary,Employer salary transfer,2025-06-05
+1183,expense,upi,House,Paytm Wallet,,Home Expense,Inverter battery service,2025-06-05
+1216,expense,upi,Me,SBI Savings,,Personal,Steam gaming,2025-06-05
+997,expense,internet_banking,House,SBI Savings,,Electricity,Electricity bill payment,2025-06-07
+1085,expense,cash,House,Cash,,Festival,Republic Day sweets distribution,2025-06-07
+586,expense,upi,Mom,Cash,,Personal,Bangles from market,2025-06-08
+239,expense,upi,Dad,SBI Savings Dad,,Medicines,Thyroid medicine,2025-06-08
+428,expense,cash,House,Cash,,Grocery,Monthly grocery from kirana,2025-06-11
+253,expense,upi,House,Paytm Wallet,,Home Expense,Ceiling fan repair,2025-06-11
+464,expense,upi,House,Paytm Wallet,,Water Bill,Municipal water charges,2025-06-12
+889,expense,upi,Me,Paytm Wallet,,Education,LeetCode premium,2025-06-12
+348,expense,cash,Me,Cash,,Doctor Visit,Eye checkup ophthalmologist,2025-06-12
+1348,expense,upi,Dad,Paytm Wallet,,Medical,Lipid profile test,2025-06-14
+1343,expense,cash,Me,Cash,,Personal,Gym monthly membership,2025-06-17
+398,expense,cash,Dad,Cash,,Personal,Shaving kit purchase,2025-06-18
+2902,income,internet_banking,Dad,SBI Savings Dad,,Investments,RD maturity,2025-06-20
+211,expense,cash,Mom,Cash,,Personal,Mobile recharge,2025-06-21
+444,expense,cash,Mom,Cash,,Medicines,Vitamins and supplements,2025-06-22
+396,expense,cash,Dad,Cash,,Personal,Mobile recharge BSNL,2025-06-23
+1221,expense,upi,House,Paytm Wallet,,Grocery,Cleaning supplies with grocery,2025-06-25
+833,expense,upi,Me,SBI Savings,,Education,Online workshop fee,2025-06-25
+2404,expense,cash,Mom,Cash,,Medical,Full body health checkup,2025-06-26
+1629,expense,upi,Me,Paytm Wallet,,Education,Project material cost,2025-06-28
+2876,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Suit for function,2025-07-01
+2943,expense,cash,Me,Cash,,Clothes,Sneakers Puma,2025-07-02
+1015,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-07-02
+551,expense,upi,Me,SBI Savings,,Personal,Barber charges,2025-07-03
+201,expense,cash,Me,Cash,,Personal,Gym monthly membership,2025-07-03
+50550,income,internet_banking,Dad,HDFC Current,,Salary,Employer salary transfer,2025-07-04
+459,expense,upi,Me,Cash,,Medicines,Prescription medicines,2025-07-04
+1406,expense,internet_banking,House,SBI Savings,,Electricity,DHBVN bill,2025-07-07
+569,expense,cash,House,Cash,,Grocery,Cleaning supplies with grocery,2025-07-07
+298,expense,cash,House,Cash,,Home Expense,Broadband internet bill,2025-07-07
+651,expense,cash,Dad,Cash,,Medicines,Thyroid medicine,2025-07-07
+746,expense,upi,Dad,Paytm Wallet,,Medical,Urine routine test,2025-07-08
+1587,expense,cash,House,Cash,,Home Expense,Society charges,2025-07-09
+1399,expense,upi,Mom,Cash,,Personal,Temple prasad,2025-07-09
+2936,expense,upi,Me,SBI Savings,,Education,Photostat and printing,2025-07-09
+2648,expense,upi,Mom,Cash,,Clothes,Festival lehenga,2025-07-09
+442,expense,cash,Dad,Cash,,Medical,Vitamin D test,2025-07-10
+368,expense,upi,House,Paytm Wallet,,Water Bill,Water tanker charges,2025-07-15
+17688,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2025-07-15
+1052,expense,upi,House,Paytm Wallet,,Grocery,Big Bazaar shopping,2025-07-16
+508,expense,cash,Dad,Cash,,Personal,Tea stall morning,2025-07-17
+873,expense,cash,Dad,Cash,,Doctor Visit,Orthopedic consultation,2025-07-17
+246,expense,upi,Dad,HDFC Current,,Personal,Evening walk snacks,2025-07-18
+135,expense,cash,Mom,Cash,,Medicines,MedPlus pharmacy,2025-07-18
+2703,expense,upi,Me,SBI Savings,,Education,Practical lab fee,2025-07-19
+991,expense,upi,House,Paytm Wallet,,Grocery,Fruits from vendor,2025-07-21
+522,expense,cash,Mom,Cash,,Doctor Visit,Paediatrician visit,2025-07-21
+1397,expense,upi,House,Paytm Wallet,,Grocery,Rice dal and flour stock,2025-07-22
+857,expense,upi,Me,SBI Savings,,Personal,Snacks at canteen,2025-07-24
+1384,expense,upi,Mom,Cash,,Personal,Parlour facial,2025-07-28
+3671,expense,cash,Mom,Cash,,Clothes,Saree from Surat,2025-08-03
+50483,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2025-08-04
+183,expense,internet_banking,House,SBI Savings,,Home Expense,Carpenter charges,2025-08-04
+2847,expense,cash,House,Cash,,Festival,Dussehra puja expenses,2025-08-04
+2087,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-08-06
+247,expense,cash,Mom,Cash,,Medicines,Prescription medicines,2025-08-07
+1639,expense,internet_banking,House,SBI Savings,,Electricity,DHBVN bill,2025-08-08
+369,expense,cash,Dad,SBI Savings Dad,,Medicines,Cough syrup and drops,2025-08-09
+671,expense,cash,Dad,Cash,,Personal,Paan shop,2025-08-10
+639,expense,cash,Me,Paytm Wallet,,Medicines,MedPlus pharmacy,2025-08-10
+8214,income,internet_banking,Dad,SBI Savings Dad,,Investments,RD maturity,2025-08-11
+1010,expense,cash,Mom,Cash,,Personal,Mehendi for function,2025-08-12
+364,expense,cash,House,Cash,,Water Bill,Water tanker charges,2025-08-15
+358,expense,upi,Me,Paytm Wallet,,Personal,Deodorant and grooming,2025-08-15
+2285,expense,upi,Me,SBI Savings,,Clothes,Track pants,2025-08-15
+672,expense,cash,Me,Cash,,Doctor Visit,Second opinion doctor,2025-08-15
+1168,expense,upi,Me,Paytm Wallet,,Medical,Ultrasound abdomen,2025-08-15
+1355,expense,cash,Me,Cash,,Personal,Spotify premium,2025-08-16
+480,expense,cash,Mom,Cash,,Doctor Visit,Eye checkup ophthalmologist,2025-08-16
+840,expense,upi,House,Paytm Wallet,,Grocery,Weekly sabzi from market,2025-08-18
+2176,expense,cash,Me,Cash,,Education,Tutorial classes,2025-08-19
+415,expense,upi,House,Paytm Wallet,,Grocery,Snacks and biscuits,2025-08-21
+2148,expense,upi,Me,SBI Savings,,Education,Photostat and printing,2025-08-21
+455,expense,upi,Me,SBI Savings,,Personal,Late night snacks,2025-08-22
+280,expense,upi,Mom,Cash,,Personal,Beauty parlour visit,2025-08-22
+1965,expense,internet_banking,House,SBI Savings,,Home Expense,House cleaning supplies,2025-08-23
+3056,expense,upi,House,Paytm Wallet,,Grocery,Big Bazaar shopping,2025-08-24
+1979,expense,cash,Me,Cash,,Medical,Chest X-ray,2025-08-24
+1287,expense,cash,Dad,Cash,,Medical,Vitamin D test,2025-08-24
+689,expense,cash,Dad,Cash,,Personal,Tobacco,2025-08-25
+2943,expense,upi,Mom,Paytm Wallet,,Festival,Raksha Bandhan rakhi and gifts,2025-08-27
+2651,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Winter jacket,2025-09-02
+49932,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2025-09-03
+2212,expense,cash,Mom,Cash,,Medical,Thyroid T3 T4 TSH profile,2025-09-03
+3079,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-09-03
+1129,expense,cash,House,Cash,,Festival,Eid ul Adha,2025-09-04
+1015,expense,cash,House,Cash,,Grocery,Big Bazaar shopping,2025-09-05
+202,expense,upi,Me,Paytm Wallet,,Personal,Snacks at canteen,2025-09-05
+3473,expense,cash,Mom,Cash,,Clothes,Dupatta,2025-09-06
+1682,expense,upi,House,Paytm Wallet,,Grocery,Zepto grocery order,2025-09-07
+203,expense,cash,Mom,Cash,,Personal,Embroidery thread,2025-09-07
+420,expense,upi,Me,Cash,,Medicines,Cough syrup and drops,2025-09-10
+2783,expense,upi,House,Paytm Wallet,,Grocery,Milk eggs and bread,2025-09-11
+1948,expense,internet_banking,House,SBI Savings,,Electricity,Power bill online,2025-09-12
+319,expense,upi,House,Paytm Wallet,,Water Bill,Water tanker charges,2025-09-12
+272,expense,upi,Me,Paytm Wallet,,Education,NPTEL subscription,2025-09-12
+1193,expense,upi,Me,Paytm Wallet,,Medical,Urine routine test,2025-09-12
+1915,expense,upi,House,Paytm Wallet,,Home Expense,Inverter battery service,2025-09-13
+2185,expense,cash,Me,Cash,,Festival,Christmas celebration,2025-09-13
+573,expense,upi,Dad,Cash,,Medicines,Antacid and digestion,2025-09-13
+103,expense,upi,Me,SBI Savings,,Personal,Swiggy order,2025-09-14
+319,expense,upi,Me,Paytm Wallet,,Education,Practical lab fee,2025-09-15
+657,expense,upi,House,Paytm Wallet,,Home Expense,LPG cylinder refill,2025-09-17
+2450,expense,cash,Me,Cash,,Clothes,T-shirt from Myntra,2025-09-17
+1201,expense,upi,Me,Paytm Wallet,,Personal,Zomato delivery,2025-09-18
+175,expense,upi,Dad,HDFC Current,,Personal,Newspaper daily,2025-09-19
+1729,expense,upi,House,Paytm Wallet,,Grocery,Jio Mart order,2025-09-20
+908,expense,upi,Me,Paytm Wallet,,Education,College semester payment,2025-09-20
+226,expense,cash,Mom,Cash,,Medicines,Cough syrup and drops,2025-09-20
+1256,expense,internet_banking,House,SBI Savings,,Home Expense,Cooler repair,2025-09-23
+599,expense,cash,Mom,Cash,,Personal,Temple prasad,2025-09-23
+1675,expense,upi,Dad,Paytm Wallet,,Medical,Blood test CBC full,2025-09-24
+197,expense,upi,Dad,HDFC Current,,Personal,Mobile recharge BSNL,2025-09-25
+694,expense,cash,Dad,Cash,,Doctor Visit,Dermatologist visit,2025-09-27
+309,expense,cash,Dad,Cash,,Personal,Temple donation,2025-10-01
+300,expense,cash,Mom,Cash,,Doctor Visit,Paediatrician visit,2025-10-02
+739,expense,cash,Me,Cash,,Doctor Visit,Neurologist consultation,2025-10-04
+48359,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2025-10-05
+2187,expense,upi,House,Paytm Wallet,,Festival,Holi bhang thandai,2025-10-05
+2499,expense,upi,Me,Paytm Wallet,,Education,Udemy course purchase,2025-10-05
+2542,expense,upi,Me,Paytm Wallet,,Medical,Thyroid T3 T4 TSH profile,2025-10-05
+1690,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-10-05
+1279,expense,internet_banking,House,SBI Savings,,Electricity,Power bill online,2025-10-06
+1402,expense,upi,Mom,Cash,,Personal,Mehendi for function,2025-10-06
+2415,expense,upi,House,Paytm Wallet,,Grocery,Vegetables and fruits,2025-10-08
+316,expense,cash,House,Cash,,Home Expense,Newspaper monthly,2025-10-09
+2723,expense,upi,House,Paytm Wallet,,Home Expense,Pest control service,2025-10-09
+456,expense,upi,Me,Paytm Wallet,,Personal,Late night snacks,2025-10-09
+4985,income,internet_banking,Dad,SBI Savings Dad,,Investments,PPF partial withdrawal,2025-10-11
+420,expense,cash,Dad,Cash,,Personal,Tea stall morning,2025-10-12
+623,expense,upi,Dad,SBI Savings Dad,,Medicines,Prescription medicines,2025-10-13
+2151,expense,cash,Dad,Cash,,Medical,Full body health checkup,2025-10-13
+396,expense,cash,House,Cash,,Water Bill,Water bill payment,2025-10-15
+4029,expense,cash,Me,Cash,,Festival,Diwali sweets and dry fruits,2025-10-16
+319,expense,cash,Mom,Cash,,Medicines,Blood pressure tablets,2025-10-16
+20725,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2025-10-16
+722,expense,upi,Me,Paytm Wallet,,Education,Project material cost,2025-10-18
+474,expense,upi,Me,Paytm Wallet,,Personal,Coffee at CCD,2025-10-20
+1795,expense,cash,Mom,Cash,,Clothes,Festival lehenga,2025-10-22
+1300,expense,upi,Dad,Paytm Wallet,,Medical,Vitamin D test,2025-10-22
+2601,expense,upi,House,Paytm Wallet,,Grocery,Blinkit order,2025-10-24
+516,expense,cash,Me,Cash,,Personal,Earphones,2025-10-25
+3073,expense,cash,House,Cash,,Grocery,Big Bazaar shopping,2025-10-26
+608,expense,upi,House,Paytm Wallet,,Grocery,Milk eggs and bread,2025-10-27
+227,expense,upi,Me,Cash,,Medicines,MedPlus pharmacy,2025-10-27
+4932,expense,upi,House,Paytm Wallet,,Festival,Diwali diyas and decoration,2025-10-28
+1271,expense,cash,Mom,Cash,,Personal,Kitchen accessories,2025-10-28
+466,expense,upi,House,Paytm Wallet,,Grocery,Swiggy Instamart,2025-11-01
+930,expense,cash,House,Cash,,Grocery,Weekly sabzi from market,2025-11-01
+2001,expense,upi,House,Paytm Wallet,,Home Expense,Geyser repair,2025-11-01
+723,expense,cash,Dad,Cash,,Personal,Tobacco,2025-11-01
+1505,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-11-02
+48438,income,internet_banking,Dad,HDFC Current,,Salary,Employer salary transfer,2025-11-03
+598,expense,cash,Mom,Cash,,Medical,Vaccination flu shot,2025-11-03
+1318,expense,cash,Mom,Cash,,Personal,Temple prasad,2025-11-04
+1723,expense,cash,Me,Cash,,Education,College semester payment,2025-11-05
+1540,expense,internet_banking,House,SBI Savings,,Electricity,DHBVN bill,2025-11-06
+2546,expense,cash,Me,Cash,,Education,Project material cost,2025-11-06
+2739,expense,internet_banking,House,SBI Savings,,Home Expense,Newspaper monthly,2025-11-07
+697,expense,cash,Dad,Cash,,Doctor Visit,Gynaecologist visit,2025-11-09
+4642,expense,cash,Me,Cash,,Festival,Independence Day celebration,2025-11-10
+545,expense,cash,Mom,Cash,,Doctor Visit,Dermatologist visit,2025-11-10
+1808,expense,cash,House,Cash,,Grocery,Rice dal and flour stock,2025-11-11
+1675,expense,cash,Me,Cash,,Medical,Vitamin D test,2025-11-11
+137,expense,upi,Mom,Cash,,Personal,Henna,2025-11-12
+186,expense,cash,Dad,Cash,,Medicines,Thyroid medicine,2025-11-13
+575,expense,upi,House,Paytm Wallet,,Water Bill,Jal board payment,2025-11-16
+2296,expense,upi,Me,SBI Savings,,Education,Udemy course purchase,2025-11-16
+581,expense,upi,Me,Cash,,Medicines,Antacid and digestion,2025-11-16
+1426,expense,upi,Dad,HDFC Current,,Clothes,Winter jacket,2025-11-17
+89,expense,cash,Dad,Cash,,Personal,Temple donation,2025-11-18
+2681,expense,upi,Me,Paytm Wallet,,Clothes,Raincoat,2025-11-19
+4301,expense,upi,Mom,Paytm Wallet,,Festival,Raksha Bandhan rakhi and gifts,2025-11-20
+446,expense,cash,Dad,Cash,,Medicines,Antacid and digestion,2025-11-22
+776,expense,upi,Me,Paytm Wallet,,Personal,Amazon Prime renewal,2025-11-23
+1252,expense,internet_banking,House,SBI Savings,,Home Expense,House cleaning supplies,2025-11-25
+899,expense,cash,Me,Cash,,Personal,Stationery purchase,2025-11-25
+764,expense,upi,Me,SBI Savings,,Personal,Stationery purchase,2025-11-26
+288,expense,cash,Mom,Cash,,Medicines,Blood pressure tablets,2025-11-28
+240,expense,cash,Me,Paytm Wallet,,Medicines,Medicines from Apollo pharmacy,2025-12-01
+2031,expense,cash,House,Cash,,Grocery,D-Mart monthly run,2025-12-02
+53596,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2025-12-03
+3972,expense,cash,Mom,Cash,,Festival,Holi colours gulal and sweets,2025-12-03
+611,expense,cash,Dad,Cash,,Personal,Pan shop,2025-12-03
+1491,expense,upi,House,Paytm Wallet,,Grocery,Spices and masala,2025-12-04
+1080,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Woollen sweater,2025-12-04
+1826,expense,internet_banking,House,SBI Savings,,Electricity,Power bill online,2025-12-05
+163,expense,cash,Mom,Cash,,Medicines,Eye drops,2025-12-05
+1875,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2025-12-08
+398,expense,cash,Dad,Cash,,Medical,Blood test CBC full,2025-12-09
+446,expense,cash,Mom,Cash,,Medicines,Antacid and digestion,2025-12-11
+5363,expense,cash,House,Cash,,Festival,Ganesh Chaturthi,2025-12-12
+438,expense,upi,Me,Paytm Wallet,,Personal,Eating out dinner,2025-12-12
+247,expense,cash,Mom,Cash,,Personal,Mehendi for function,2025-12-12
+735,expense,upi,Me,Paytm Wallet,,Personal,Street food with friends,2025-12-13
+248,expense,cash,Dad,Cash,,Medicines,Diabetes medicines,2025-12-13
+560,expense,cash,House,Cash,,Water Bill,Municipal water charges,2025-12-16
+252,expense,cash,House,Cash,,Home Expense,Water purifier service,2025-12-16
+2670,income,internet_banking,Dad,SBI Savings Dad,,Investments,FD interest credit,2025-12-19
+1834,expense,cash,Me,Cash,,Education,Skill India course,2025-12-19
+372,expense,cash,Me,Cash,,Doctor Visit,ENT specialist,2025-12-19
+2267,expense,upi,House,Paytm Wallet,,Home Expense,Newspaper monthly,2025-12-20
+1023,expense,upi,Dad,Paytm Wallet,,Medical,Full body health checkup,2025-12-21
+1287,expense,upi,Me,Paytm Wallet,,Personal,Barber charges,2025-12-22
+677,expense,upi,Dad,HDFC Current,,Personal,Mobile recharge BSNL,2025-12-22
+1977,expense,cash,Me,Cash,,Education,Photostat and printing,2025-12-22
+3366,expense,cash,Mom,Cash,,Clothes,Saree from Surat,2025-12-25
+2999,expense,cash,House,Cash,,Grocery,Oil ghee butter,2025-12-26
+1988,expense,internet_banking,House,SBI Savings,,Home Expense,Carpenter charges,2025-12-26
+1448,expense,upi,Mom,Cash,,Personal,Mehendi for function,2025-12-26
+951,expense,cash,House,Cash,,Grocery,Oil ghee butter,2025-12-28
+3159,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-01-01
+47124,income,internet_banking,Dad,HDFC Current,,Salary,Employer salary transfer,2026-01-02
+1452,expense,cash,Mom,Cash,,Personal,Waxing charges,2026-01-02
+168,expense,cash,Mom,Cash,,Medicines,Prescription medicines,2026-01-02
+1811,expense,upi,House,Paytm Wallet,,Home Expense,Maid salary,2026-01-03
+1533,expense,upi,Dad,Paytm Wallet,,Medical,HbA1c test,2026-01-03
+1612,expense,upi,Me,SBI Savings,,Education,LeetCode premium,2026-01-04
+1231,expense,upi,Me,Paytm Wallet,,Personal,Swiggy order,2026-01-06
+409,expense,upi,Dad,HDFC Current,,Personal,Tea stall morning,2026-01-07
+570,expense,cash,Me,Paytm Wallet,,Medicines,Blood pressure tablets,2026-01-07
+1288,expense,upi,Me,Paytm Wallet,,Clothes,Casual wear,2026-01-09
+3221,expense,upi,Dad,HDFC Current,,Clothes,Formal shirt office,2026-01-09
+314,expense,cash,Dad,SBI Savings Dad,,Medicines,Medicines from Apollo pharmacy,2026-01-09
+1999,expense,internet_banking,House,SBI Savings,,Electricity,Electricity bill payment,2026-01-10
+402,expense,cash,Dad,Cash,,Doctor Visit,General physician visit,2026-01-11
+2607,expense,cash,Me,Cash,,Education,Project material cost,2026-01-12
+556,expense,upi,House,Paytm Wallet,,Water Bill,Water tanker charges,2026-01-15
+2708,expense,upi,Me,SBI Savings,,Education,Udemy course purchase,2026-01-15
+1222,expense,cash,Me,Cash,,Medical,HbA1c test,2026-01-15
+14812,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2026-01-16
+1916,expense,cash,House,Cash,,Grocery,Zepto grocery order,2026-01-17
+1388,expense,cash,House,Cash,,Grocery,Jio Mart order,2026-01-18
+190,expense,cash,Me,Cash,,Personal,Spotify premium,2026-01-18
+446,expense,cash,Mom,Cash,,Personal,Henna,2026-01-19
+1325,expense,internet_banking,House,SBI Savings,,Home Expense,Painting advance,2026-01-24
+335,expense,cash,Dad,Cash,,Personal,Tobacco,2026-01-24
+418,expense,upi,Dad,Paytm Wallet,,Medical,Lipid profile test,2026-01-24
+3121,expense,upi,House,Paytm Wallet,,Grocery,Vegetables and fruits,2026-01-25
+4971,expense,upi,House,Paytm Wallet,,Festival,Christmas celebration,2026-01-27
+737,expense,upi,Me,SBI Savings,,Personal,Coffee at CCD,2026-01-28
+647,expense,cash,Mom,Cash,,Doctor Visit,Paediatrician visit,2026-01-28
+52939,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2026-02-01
+664,expense,upi,House,Paytm Wallet,,Grocery,Zepto grocery order,2026-02-01
+3094,expense,cash,Mom,Cash,,Clothes,Jewellery accessories,2026-02-01
+1599,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-02-01
+2426,expense,upi,House,Paytm Wallet,,Grocery,Zepto grocery order,2026-02-02
+382,expense,upi,Dad,HDFC Current,,Personal,Mobile recharge BSNL,2026-02-02
+374,expense,cash,House,Cash,,Home Expense,Building maintenance,2026-02-03
+319,expense,upi,Dad,HDFC Current,,Personal,Shaving kit purchase,2026-02-04
+376,expense,upi,Me,SBI Savings,,Personal,Gym monthly membership,2026-02-05
+1270,expense,upi,House,Paytm Wallet,,Grocery,Rice dal and flour stock,2026-02-06
+688,expense,cash,Me,Cash,,Education,Skill India course,2026-02-06
+711,expense,internet_banking,House,SBI Savings,,Home Expense,Carpenter charges,2026-02-07
+740,expense,cash,Mom,Cash,,Doctor Visit,ENT specialist,2026-02-07
+152,expense,upi,Me,Cash,,Medicines,Cough syrup and drops,2026-02-07
+479,expense,cash,Me,Cash,,Doctor Visit,ENT specialist,2026-02-08
+804,expense,upi,Me,Paytm Wallet,,Personal,Steam gaming,2026-02-09
+1199,expense,cash,Me,Cash,,Education,Tutorial classes,2026-02-10
+1243,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2026-02-11
+1435,expense,cash,Dad,Cash,,Medical,Full body health checkup,2026-02-11
+147,expense,cash,Me,Cash,,Personal,Stationery purchase,2026-02-12
+523,expense,cash,Mom,Cash,,Medical,HbA1c test,2026-02-14
+1546,income,internet_banking,Dad,SBI Savings Dad,,Investments,RD maturity,2026-02-15
+429,expense,cash,House,Cash,,Water Bill,Jal board payment,2026-02-15
+888,expense,cash,Dad,SBI Savings Dad,,Medicines,Eye drops,2026-02-17
+1305,expense,cash,Mom,Cash,,Personal,Embroidery thread,2026-02-18
+440,expense,cash,Mom,Cash,,Personal,Waxing charges,2026-02-19
+1916,expense,upi,Me,SBI Savings,,Clothes,Sneakers Puma,2026-02-19
+414,expense,cash,Mom,Cash,,Medicines,Antibiotic course,2026-02-19
+994,expense,internet_banking,Dad,SBI Savings Dad,,Clothes,Formal shirt office,2026-02-22
+2618,expense,upi,House,Paytm Wallet,,Home Expense,House cleaning supplies,2026-02-23
+4934,expense,cash,Me,Cash,,Festival,New Year party expenses,2026-02-23
+1588,expense,cash,Dad,Cash,,Medical,COVID test,2026-02-28
+2043,expense,upi,House,Paytm Wallet,,Grocery,Weekly sabzi from market,2026-03-01
+2581,expense,internet_banking,House,SBI Savings,,Home Expense,Building maintenance,2026-03-01
+54570,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2026-03-02
+4899,expense,cash,Mom,Cash,,Festival,Christmas celebration,2026-03-02
+399,expense,cash,Dad,Cash,,Doctor Visit,Paediatrician visit,2026-03-02
+2956,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-03-03
+315,expense,cash,Mom,Cash,,Medicines,Blood pressure tablets,2026-03-04
+530,expense,cash,House,Cash,,Grocery,Rice dal and flour stock,2026-03-06
+677,expense,cash,House,Cash,,Home Expense,Cooler repair,2026-03-07
+656,expense,cash,Mom,Cash,,Personal,Henna,2026-03-07
+1489,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2026-03-11
+728,expense,cash,Me,Cash,,Personal,Deodorant and grooming,2026-03-13
+1465,expense,upi,Me,SBI Savings,,Education,College semester payment,2026-03-13
+1877,expense,upi,Dad,Paytm Wallet,,Medical,Urine routine test,2026-03-13
+221,expense,upi,House,Paytm Wallet,,Water Bill,Water bill payment,2026-03-14
+617,expense,cash,House,Cash,,Home Expense,Plumber visit charges,2026-03-14
+1838,expense,cash,Mom,Cash,,Festival,Ram Navami puja samagri,2026-03-16
+321,expense,upi,Dad,Cash,,Medicines,Blood pressure tablets,2026-03-16
+2700,expense,upi,Dad,SBI Savings Dad,,Clothes,Belt and wallet,2026-03-17
+819,expense,upi,House,Paytm Wallet,,Grocery,Milk eggs and bread,2026-03-21
+3870,expense,upi,Mom,Paytm Wallet,,Festival,Dussehra puja expenses,2026-03-21
+1163,expense,cash,Dad,Cash,,Medical,Full body health checkup,2026-03-21
+381,expense,cash,Me,Cash,,Medicines,Cough syrup and drops,2026-03-22
+776,expense,upi,Mom,Cash,,Personal,Embroidery thread,2026-03-24
+517,expense,upi,Dad,HDFC Current,,Personal,Mobile recharge BSNL,2026-03-25
+2519,expense,upi,Me,SBI Savings,,Education,Exam registration fee,2026-03-26
+366,expense,upi,Me,Paytm Wallet,,Personal,Hotstar subscription,2026-03-27
+519,expense,cash,Me,Cash,,Personal,Zomato delivery,2026-03-27
+347,expense,cash,Dad,Cash,,Personal,Shaving kit purchase,2026-03-28
+3908,expense,upi,Mom,Cash,,Clothes,Cotton saree,2026-03-28
+283,expense,cash,Me,Cash,,Doctor Visit,Routine health checkup,2026-04-01
+54580,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2026-04-03
+1901,expense,upi,House,Paytm Wallet,,Grocery,Blinkit order,2026-04-03
+975,expense,upi,Me,Paytm Wallet,,Personal,Haircut from salon,2026-04-03
+186,expense,upi,Dad,HDFC Current,,Personal,Pan shop,2026-04-03
+2615,expense,upi,Me,SBI Savings,,Education,Udemy course purchase,2026-04-03
+521,expense,upi,Me,Cash,,Medicines,Calcium supplements,2026-04-03
+1648,expense,internet_banking,House,SBI Savings,,Electricity,Power bill online,2026-04-06
+732,expense,cash,House,Cash,,Home Expense,Water purifier service,2026-04-06
+3150,expense,upi,Me,Paytm Wallet,,Education,Coaching institute fee,2026-04-06
+463,expense,cash,Mom,Cash,,Medicines,Medicines from Apollo pharmacy,2026-04-06
+1845,expense,upi,Dad,Paytm Wallet,,Medical,ECG test,2026-04-06
+1140,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-04-06
+2521,expense,upi,Me,Paytm Wallet,,Festival,Baisakhi celebration food,2026-04-07
+437,expense,upi,Me,Paytm Wallet,,Personal,Gym monthly membership,2026-04-07
+233,expense,upi,Dad,HDFC Current,,Personal,Haircut and shave,2026-04-08
+741,expense,cash,Mom,Cash,,Doctor Visit,Orthopedic consultation,2026-04-09
+1881,expense,internet_banking,House,SBI Savings,,Home Expense,Pest control service,2026-04-10
+600,expense,upi,Mom,Cash,,Clothes,Cotton saree,2026-04-10
+2689,expense,upi,House,Paytm Wallet,,Grocery,Jio Mart order,2026-04-11
+631,expense,upi,Mom,Cash,,Personal,Embroidery thread,2026-04-12
+650,expense,upi,Dad,Cash,,Medicines,Calcium supplements,2026-04-12
+4857,expense,upi,House,Paytm Wallet,,Festival,Independence Day celebration,2026-04-13
+954,expense,upi,Me,Paytm Wallet,,Education,Practical lab fee,2026-04-14
+220,expense,cash,House,Cash,,Water Bill,Jal board payment,2026-04-15
+2132,expense,upi,Me,Paytm Wallet,,Medical,Lipid profile test,2026-04-15
+2612,income,internet_banking,Dad,SBI Savings Dad,,Investments,Stock dividend,2026-04-16
+3722,expense,upi,Dad,HDFC Current,,Clothes,Formal shirt office,2026-04-18
+625,expense,upi,Me,SBI Savings,,Clothes,Hoodie winter,2026-04-19
+821,expense,cash,House,Cash,,Grocery,Sugar and tea,2026-04-20
+1894,expense,cash,House,Cash,,Home Expense,Sofa cleaning,2026-04-21
+487,expense,cash,Me,Cash,,Medical,Physiotherapy session,2026-04-22
+6612,transfer,internet_banking,Dad,SBI Savings Dad,HDFC Current,,Funds transfer to current account,2026-04-22
+285,expense,cash,Me,Cash,,Personal,Phone case,2026-04-23
+241,expense,cash,Mom,Cash,,Personal,Henna,2026-04-28
+49115,income,internet_banking,Dad,HDFC Current,,Salary,Monthly salary credit,2026-05-02
+140,expense,cash,Mom,Cash,,Medicines,Fever medicine paracetamol,2026-05-02
+1432,expense,upi,Me,Paytm Wallet,,Medical,Thyroid T3 T4 TSH profile,2026-05-02
+541,expense,upi,Me,SBI Savings,,Education,Class notes printing,2026-05-03
+983,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-05-04
+2626,expense,upi,House,Paytm Wallet,,Grocery,Sugar and tea,2026-05-07
+167,expense,cash,Mom,Cash,,Personal,Waxing charges,2026-05-07
+2336,expense,cash,House,Cash,,Grocery,Milk eggs and bread,2026-05-08
+943,expense,cash,Mom,Cash,,Medical,COVID test,2026-05-09
+1171,expense,internet_banking,House,SBI Savings,,Electricity,Electricity bill payment,2026-05-10
+1281,expense,cash,House,Cash,,Home Expense,Geyser repair,2026-05-10
+2530,expense,upi,Me,SBI Savings,,Education,Coursera certificate,2026-05-10
+802,expense,upi,Dad,Paytm Wallet,,Medical,HbA1c test,2026-05-10
+481,expense,cash,House,Cash,,Water Bill,Water tanker charges,2026-05-11
+3412,expense,cash,House,Cash,,Festival,Karva Chauth preparations,2026-05-11
+1129,expense,cash,Me,Cash,,Personal,Late night snacks,2026-05-11
+529,expense,cash,Mom,Cash,,Doctor Visit,Diabetologist visit,2026-05-14
+957,expense,upi,Me,Paytm Wallet,,Personal,Amazon Prime renewal,2026-05-16
+729,expense,cash,Dad,Cash,,Doctor Visit,Eye checkup ophthalmologist,2026-05-18
+691,expense,upi,House,Paytm Wallet,,Grocery,Zepto grocery order,2026-05-20
+991,expense,cash,Me,Cash,,Personal,Swiggy order,2026-05-20
+735,expense,cash,Dad,Cash,,Personal,Temple donation,2026-05-20
+518,expense,cash,Me,Cash,,Medicines,Iron supplements,2026-05-20
+745,expense,cash,Dad,SBI Savings Dad,,Medicines,Eye drops,2026-05-20
+171,expense,upi,Mom,Cash,,Personal,Henna,2026-05-21
+917,expense,cash,Me,Cash,,Festival,Diwali sweets and dry fruits,2026-05-22
+669,expense,upi,Me,SBI Savings,,Clothes,Casual wear,2026-05-22
+422,expense,upi,Dad,HDFC Current,,Personal,Newspaper daily,2026-05-23
+828,expense,upi,House,Paytm Wallet,,Home Expense,LPG cylinder refill,2026-05-24
+54237,income,internet_banking,Dad,HDFC Current,,Salary,Salary for the month,2026-06-02
+1333,expense,cash,Me,Cash,,Personal,Late night snacks,2026-06-04
+986,expense,upi,House,Paytm Wallet,,Grocery,Rice dal and flour stock,2026-06-06
+333,expense,cash,Me,Cash,,Personal,Gym monthly membership,2026-06-06
+182,expense,cash,Dad,Cash,,Personal,Newspaper daily,2026-06-07
+1180,transfer,internet_banking,Me,SBI Savings,Paytm Wallet,,Transfer to Paytm wallet,2026-06-07
+1833,expense,upi,Dad,HDFC Current,,Clothes,Winter jacket,2026-06-08
+2657,expense,cash,House,Cash,,Home Expense,House cleaning supplies,2026-06-09
+514,expense,cash,Mom,Cash,,Medicines,Calcium supplements,2026-06-09
+381,expense,cash,Me,Cash,,Medicines,Fever medicine paracetamol,2026-06-09
+1782,expense,upi,House,Paytm Wallet,,Home Expense,Cable TV monthly,2026-06-10
+2277,expense,internet_banking,House,SBI Savings,,Electricity,Bijli bill payment,2026-06-12
+429,expense,upi,Me,Cash,,Medicines,Iron supplements,2026-06-12
+552,expense,cash,Me,Cash,,Medical,COVID test,2026-06-12
+519,expense,cash,Me,Cash,,Education,Udemy course purchase,2026-06-13
+433,expense,upi,House,Paytm Wallet,,Water Bill,Water tanker charges,2026-06-14
+235,expense,upi,Dad,HDFC Current,,Personal,Evening walk snacks,2026-06-14
+2299,expense,upi,Me,SBI Savings,,Education,Photostat and printing,2026-06-16
+575,expense,cash,Mom,Cash,,Personal,Kitchen accessories,2026-06-17
+1220,expense,cash,Mom,Cash,,Medical,Full body health checkup,2026-06-18
+3144,income,internet_banking,Dad,SBI Savings Dad,,Investments,Dividend received,2026-06-20
+5262,expense,cash,House,Cash,,Festival,Baisakhi celebration food,2026-06-20
+2185,expense,cash,Dad,Cash,,Medical,Urine routine test,2026-06-20
+252,expense,cash,Dad,Cash,,Medicines,Calcium supplements,2026-06-22
+831,expense,upi,House,Paytm Wallet,,Grocery,Sugar and tea,2026-06-24
+1213,expense,upi,Me,Paytm Wallet,,Personal,Zomato delivery,2026-06-24
+238,expense,upi,Mom,Cash,,Personal,Mehendi for function,2026-06-26
+790,expense,upi,Me,Paytm Wallet,,Education,College semester payment,2026-06-27
+533,expense,cash,Me,Cash,,Doctor Visit,Second opinion doctor,2026-06-27
+2392,expense,upi,House,Paytm Wallet,,Grocery,Snacks and biscuits,2026-06-28
